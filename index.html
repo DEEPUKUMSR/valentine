@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Be My Valentine 💖</title>
+  <style>
+    body{
+      background:#ffd6e8;
+      font-family:Arial;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+    .box{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      width:320px;
+    }
+    button{
+      padding:10px 20px;
+      border:none;
+      border-radius:20px;
+      font-size:16px;
+      cursor:pointer;
+      margin:5px;
+    }
+    #yes{background:#ff4d6d;color:white;}
+    #no{background:#ddd;position:absolute;}
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2 id="text">Will you be my Valentine? 💘</h2>
+  <button id="yes" onclick="yes()">Yes</button>
+  <button id="no" onmouseover="move()">No</button>
+</div>
+
+<script>
+const p = new URLSearchParams(window.location.search);
+const name = p.get("name");
+if(name){
+  document.getElementById("text").innerText =
+    name + ", will you be my Valentine? 💖";
+}
+
+function move(){
+  document.getElementById("no").style.transform =
+    `translate(${Math.random()*200}px,${Math.random()*200}px)`;
+}
+
+function yes(){
+  document.body.innerHTML =
+    "<h1 style='color:#ff4d6d'>Yaaay! 💖😍</h1>";
+}
+</script>
+
+</body>
+</html>
